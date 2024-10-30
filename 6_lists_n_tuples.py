@@ -1,4 +1,9 @@
 # Lists (Arrays in JS)
+# List is one of 4 built-in data types in Python used to store collections of data.
+# The other 3 are Tuple, Dictionary and Set, all with different qualities and usage.
+
+# List items are ordered, changeable, and allow duplicate values.
+
 users = ['Guillem', 'Dave', 'John', 'Sara']
 
 data = list(['Guillem', 34, True])
@@ -8,8 +13,9 @@ emptylist = []
 print(type(users))  # <class 'list'>
 
 # Value at index
-print(users[0])         # Guillem (starts from 0)
-print(users[-2])        # John (from end)
+# List items are indexed, the first item has index [0], the second item has index [1] etc.
+print(users[0])         # Guillem
+print(users[-2])        # John (2nd from end)
 
 # in (includes?)
 print('Dave' in users)  # True
@@ -71,8 +77,7 @@ print(mynums)
 print(mycopy)
 
 # Tuples
-# Tuples are used to store multiple items in a single variable.
-# A tuple is a collection which is ordered and unchangeable.
+# A tuple is a collection which is ordered, unchangeable, and allows duplicate values.
 
 mytuple = ('Guillem', 34, True)
 anothertuple = tuple((1, 2, 2, 3, 4))
