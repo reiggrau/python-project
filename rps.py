@@ -79,8 +79,11 @@ def rps(name='Player'):
         if playagain.lower() == 'y':
             return play_rps()
         else:
-            sys.exit(f'Goodbye {name}! 👋😊')
-            return
+            print('Thank you for playing!')
+            if __name__ == '__main__':
+                sys.exit('Goodbye {name}! 👋😊')
+            else:
+                return
 
     return play_rps
 

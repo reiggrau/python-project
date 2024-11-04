@@ -1,33 +1,35 @@
-import rps
-import guess
+import sys
+from rps import rps
+from guess import guess
 
 
-def arcade(name='Player'):
-    def play_arcade():
+def play_arcade(name='Player'):
+    welcomeback = False
+
+    while True:
+        if welcomeback == True:
+            print(f"\nWelcome back to the Arcade menu.")
+
         # 1. Select game
         playerchoice = input(
-            f"\n{name}, select a game: \n 1 for Rock, Paper, Scissors 🪨 🧻✂️ \n 2 for Guess The Number 🔢❓ \n\n Or 'x' for exit.\n")
-
-        if playerchoice == 'x' or playerchoice == 'X':
-            print(f'Goodbye {name}! 👋😊')
-            return
+            "\nPlease select a game: \n 1 for Rock, Paper, Scissors 🪨 🧻✂️ \n 2 for Guess The Number 🔢❓ \n\n Or 'x' for exit.\n")
 
         # 1b. Input check
-        if playerchoice not in ['1', '2']:
-            print(f"{name}, you must enter 1 or 2.")
+        if playerchoice.lower() not in ['1', '2', 'x']:
+            print(f"{name}, you must enter 1, 2 or x.")
             return play_arcade()
 
         # 2. Start selected game
+        welcomeback = True
+
         if playerchoice == '1':
-            rock_paper_scissors = rps.rps(name)  # This creates closure
+            rock_paper_scissors = rps(name)  # This creates closure
             rock_paper_scissors()
         if playerchoice == '2':
-            guess_game = guess.guess(name)
+            guess_game = guess(name)
             guess_game()
         else:
-            return
-
-    return play_arcade
+            sys.exit(f'Goodbye {name}! 👋😊')
 
 
 if __name__ == '__main__':
@@ -44,5 +46,5 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    start_arcade = arcade(args.name)
-    start_arcade()
+    print(f"Welcome to the Arcade menu, {args.name}!")
+    play_arcade(args.name)
